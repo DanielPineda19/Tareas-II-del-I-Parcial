@@ -19,6 +19,7 @@ namespace Ejercicio_No._2___Tarea
 
         private async void CalcularButton_Click(object sender, EventArgs e)
         {
+            //Error Provider
             if (Nota1TextBox.Text == "")
             {
                 errorProvider1.SetError(Nota1TextBox, "Ingrese la nota del primer parcial");
@@ -41,19 +42,21 @@ namespace Ejercicio_No._2___Tarea
             }
             errorProvider1.Clear(); 
 
-
+            //Declaración de variables
             decimal Nota1 = Convert.ToDecimal(Nota1TextBox.Text);
             decimal Nota2 = Convert.ToDecimal(Nota2TextBox.Text);
             decimal Nota3 = Convert.ToDecimal(Nota3TextBox.Text);
             decimal Nota4 = Convert.ToDecimal(Nota4TextBox.Text);
 
+            //Llamado de una función asicrónica
             decimal Promedio = await CalcularPromedioAsync(Nota1, Nota2, Nota3, Nota4);
 
-
+            //Mostrar Promedio del estudiante
             PromedioTextBox.Text = "El promedio del estudiante es: " + Promedio + "%";
 
         }
 
+        //Función Asincrónica 
         private async Task<decimal> CalcularPromedioAsync(decimal N1, decimal N2, decimal N3, decimal N4)
         {
 
@@ -66,6 +69,7 @@ namespace Ejercicio_No._2___Tarea
 
         }
 
+        //Boton para limpiar las casillas (TextBox)
         private void LimpiarButton_Click(object sender, EventArgs e)
         {
             AlumnoTextBox.Clear();
